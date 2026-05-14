@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] — 2026-05-14
+
+### Added
+
+- `ca_profile.xml` at the repo root — required by Community Applications
+  for new repository submissions. Contains the maintainer profile, icon
+  and webpage link.
+- CI now lints `ca_profile.xml` and asserts `<Profile>`, `<Icon>` and
+  `<WebPage>` are present and non-empty.
+
+### Changed
+
+- README release badge: `display_name=tag`, `sort=semver`,
+  `cacheSeconds=300` so it refreshes within 5 minutes of a new tag.
+- Consolidated bot updates onto Renovate; removed Dependabot config to
+  avoid duplicate PRs.
+
 ## [1.0.0] — 2026-05-14
 
 ### Added
@@ -26,5 +43,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions CI: XML lint, Unraid CA sanity check, markdownlint,
   yamllint, link check (lychee).
 
-[Unreleased]: https://github.com/junkerderprovinz/openhands/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/junkerderprovinz/openhands/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/junkerderprovinz/openhands/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/junkerderprovinz/openhands/releases/tag/v1.0.0

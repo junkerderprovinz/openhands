@@ -18,30 +18,32 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install xmllint
         run: sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends libxml2-utils
-      - name: Validate all XML templates
+      - name: Validate all XML files
         run: |
           set -euo pipefail
           shopt -s nullglob
           found=0
-          for f in templates/*.xml; do
+          for f in templates/*.xml ca_profile.xml; do
+            [ -f "$f" ] || continue
             echo "::group::xmllint $f"
             xmllint --noout "$f"
             echo "::endgroup::"
             found=$((found + 1))
           done
           if [ "$found" -eq 0 ]; then
-            echo "::error::No XML templates found in templates/"
+            echo "::error::No XML files found"
             exit 1
           fi
-          echo "Validated $found XML template(s)."
-      - name: Unraid CA template sanity check
+          echo "Validated $found XML file(s)."
+      - name: Unraid CA sanity check (templates + ca_profile)
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import sys, glob, xml.etree.ElementTree as ET
+          import os, sys, glob, xml.etree.ElementTree as ET
           required = ["Name", "Repository", "Network", "WebUI", "Icon",
                       "Project", "Support", "Overview", "Category"]
           errors = []
+          # --- templates/*.xml: must be Container v2 with required fields ---
           for path in sorted(glob.glob("templates/*.xml")):
               root = ET.parse(path).getroot()
               if root.tag != "Container":
@@ -52,15 +54,28 @@ jobs:
               for tag in required:
                   if root.find(tag) is None:
                       errors.append(f"{path}: missing required <{tag}>")
-              # Every <Config> needs Name + Target + Type
               for cfg in root.findall("Config"):
                   for attr in ("Name", "Target", "Type"):
                       if not cfg.attrib.get(attr):
                           errors.append(f"{path}: <Config> missing @{attr}")
+          # --- ca_profile.xml: required for new CA repo submissions ---
+          if not os.path.isfile("ca_profile.xml"):
+              errors.append("ca_profile.xml: missing at repo root")
+          else:
+              root = ET.parse("ca_profile.xml").getroot()
+              if root.tag != "CommunityApplications":
+                  errors.append(f"ca_profile.xml: root tag is <{root.tag}>, expected <CommunityApplications>")
+              profile = root.find("Profile")
+              if profile is None or not (profile.text or "").strip():
+                  errors.append("ca_profile.xml: <Profile> must be present and non-empty")
+              for tag in ("Icon", "WebPage"):
+                  el = root.find(tag)
+                  if el is None or not (el.text or "").strip():
+                      errors.append(f"ca_profile.xml: <{tag}> must be present and non-empty")
           if errors:
               print("\n".join(errors))
               sys.exit(1)
-          print("All templates pass Unraid CA sanity checks.")
+          print("All XML files pass Unraid CA sanity checks.")
           PY
 
   lint:

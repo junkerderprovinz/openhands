@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommunityApplications>
+  <Profile>
+    OpenHands for Unraid – community Docker template for the open-source
+    AI software-development agent. Plug-and-play with sensible defaults:
+    pre-configured for local Ollama (qwen2.5-coder:14b), Docker-socket
+    sandboxing, and host.docker.internal routing. Switch to any OpenAI /
+    Anthropic / OpenRouter / Mistral model from the template form.
+    Maintained by junkerderprovinz. Support via GitHub issues.
+  </Profile>
+  <Icon>https://raw.githubusercontent.com/junkerderprovinz/openhands/main/.github/assets/icon.png</Icon>
+  <WebPage>https://github.com/junkerderprovinz/openhands</WebPage>
+</CommunityApplications>
