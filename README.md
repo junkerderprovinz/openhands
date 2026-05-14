@@ -61,8 +61,9 @@ What this template gives you over a bare `docker run`:
   workspace files live in `/mnt/user/ai-workspace`
 - **Embedded local embeddings** — `LLM_EMBEDDING_MODEL=local` avoids
   surprise API calls
-- **Tag selector** — flip between the pinned `:1.7` (stable) and `:latest`
-  from the Unraid template dropdown
+- **Pinned to a known-good tag** — the template ships with the OpenHands
+  image pinned to `:1.7`. New versions are surfaced as Renovate PRs so
+  every bump is reviewed before users get it.
 
 ## 2. Features
 
@@ -206,12 +207,15 @@ The template applies:
 This lets the container reach services running on the Unraid host (Ollama,
 your dev DB, etc.) via `http://host.docker.internal:<port>`.
 
-### Image tag selector
+### Image tag
 
-The template exposes a **Branch** dropdown in the Unraid template form:
-
-- `1.7` — pinned stable, **default and recommended**.
-- `latest` — floating latest, may include breaking changes.
+The template ships pinned to `docker.openhands.dev/openhands/openhands:1.7`.
+New OpenHands versions are picked up by [Renovate](renovate.json), which
+opens a PR bumping the tag once a new release is available. After review
+and merge, Unraid CA polls the repo within ~2 hours and offers the
+update to users via the standard *Update Available* notification. Users
+who want to override the tag manually can do so in the Unraid template's
+*Repository* field (Advanced View).
 
 ## 6. GitHub Personal Access Token
 

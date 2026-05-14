@@ -21,14 +21,6 @@
   <DonateText>If this template helps you, consider buying me a coffee.</DonateText>
   <DonateLink>https://buymeacoffee.com/junkerderprovinz</DonateLink>
   <Requires>A reachable Ollama instance (or any OpenAI-compatible LLM endpoint) configured via the LLM_* variables. Defaults assume Ollama running on the Unraid host, reachable via host.docker.internal.</Requires>
-  <Branch>
-    <Tag>1.7</Tag>
-    <TagDescription>Pinned stable — recommended (default)</TagDescription>
-  </Branch>
-  <Branch>
-    <Tag>latest</Tag>
-    <TagDescription>Floating latest — may include breaking changes</TagDescription>
-  </Branch>
   <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="OpenHands web interface" Type="Port" Display="always" Required="true" Mask="false">3000</Config>
   <Config Name="Config Directory" Target="/.openhands" Default="/mnt/user/appdata/openhands" Mode="rw" Description="Persistent OpenHands configuration and state" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/openhands</Config>
   <Config Name="Workspace Directory" Target="/workspace" Default="/mnt/user/ai-workspace" Mode="rw" Description="Working directory exposed to the agent" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/ai-workspace</Config>
