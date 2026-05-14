@@ -311,6 +311,7 @@ re-pulls the template.
   `qwen2.5-coder:7b`, `deepseek-coder-v2:16b-lite-instruct-q4_K_M`.
 - Each sandbox container the agent spawns also consumes RAM — set a
   resource limit in the Unraid template's *Advanced View* if needed.
+
 </details>
 
 <details>
@@ -322,6 +323,7 @@ re-pulls the template.
 - Some self-hosted GitHub Enterprise instances need
   `GITHUB_API_URL=https://github.your-corp.com/api/v3` as an extra
   variable.
+
 </details>
 
 ## 10. Security Notes

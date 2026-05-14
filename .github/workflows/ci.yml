@@ -100,5 +100,8 @@ jobs:
             --exclude '^https?://(localhost|127\.0\.0\.1|\[IP\]|<unraid-ip>)'
             --exclude 'host\.docker\.internal'
             --exclude 'github\.your-corp\.com'
+            --exclude 'docker\.openhands\.dev'
+            --exclude 'forums\.unraid\.net'
+            --exclude 'github\.com/.+/compare/'
             README.md SECURITY.md CHANGELOG.md
           fail: true
