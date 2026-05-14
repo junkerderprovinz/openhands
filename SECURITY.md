@@ -14,7 +14,7 @@ It does **not** contain the OpenHands source code or container image.
 
 ## Reporting
 
-Open a [private security advisory](https://github.com/junkerderprovinz/unraid-ca-openhands/security/advisories/new)
+Open a [private security advisory](https://github.com/junkerderprovinz/openhands/security/advisories/new)
 on GitHub. Do **not** open a public issue for security problems.
 
 Include:

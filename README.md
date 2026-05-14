@@ -1,13 +1,13 @@
 <h1 align="center">Unraid CA Template for OpenHands</h1>
 
 <a href="https://github.com/OpenHands/OpenHands">
-  <img src="https://raw.githubusercontent.com/junkerderprovinz/unraid-ca-openhands/main/.github/assets/banner.png" alt="OpenHands" width="100%">
+  <img src="https://raw.githubusercontent.com/junkerderprovinz/openhands/main/.github/assets/banner.png" alt="OpenHands" width="100%">
 </a>
 
 <p align="center">
-  <a href="https://github.com/junkerderprovinz/unraid-ca-openhands/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/junkerderprovinz/unraid-ca-openhands/ci.yml?branch=main&label=Build&style=for-the-badge&logo=githubactions&logoColor=white" alt="Build" height="36"></a>&nbsp;
-  <a href="https://github.com/junkerderprovinz/unraid-ca-openhands/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/junkerderprovinz/unraid-ca-openhands/ci.yml?branch=main&label=Lint&style=for-the-badge&logo=eslint&logoColor=white" alt="Lint" height="36"></a>&nbsp;
-  <a href="https://github.com/junkerderprovinz/unraid-ca-openhands/releases/latest"><img src="https://img.shields.io/github/v/release/junkerderprovinz/unraid-ca-openhands?style=for-the-badge&logo=semver&logoColor=white&color=success" alt="Release" height="36"></a>&nbsp;
+  <a href="https://github.com/junkerderprovinz/openhands/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/junkerderprovinz/openhands/ci.yml?branch=main&label=Build&style=for-the-badge&logo=githubactions&logoColor=white" alt="Build" height="36"></a>&nbsp;
+  <a href="https://github.com/junkerderprovinz/openhands/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/junkerderprovinz/openhands/ci.yml?branch=main&label=Lint&style=for-the-badge&logo=eslint&logoColor=white" alt="Lint" height="36"></a>&nbsp;
+  <a href="https://github.com/junkerderprovinz/openhands/releases/latest"><img src="https://img.shields.io/github/v/release/junkerderprovinz/openhands?style=for-the-badge&logo=semver&logoColor=white&color=success" alt="Release" height="36"></a>&nbsp;
   <a href="https://github.com/OpenHands/OpenHands"><img src="https://img.shields.io/badge/Upstream-OpenHands-FFFF8B?style=for-the-badge&logo=github&logoColor=black" alt="Upstream" height="36"></a>&nbsp;
   <a href="https://docker.openhands.dev/openhands/openhands"><img src="https://img.shields.io/badge/Image-docker.openhands.dev-1d99f3?style=for-the-badge&logo=docker&logoColor=white" alt="Image" height="36"></a>&nbsp;
   <a href="https://ollama.com"><img src="https://img.shields.io/badge/LLM-Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white" alt="Ollama" height="36"></a>&nbsp;
@@ -146,7 +146,7 @@ or via SSH:
 ```bash
 mkdir -p /boot/config/plugins/dockerMan/templates-user && \
 curl -fsSL -o /boot/config/plugins/dockerMan/templates-user/my-OpenHands.xml \
-  https://raw.githubusercontent.com/junkerderprovinz/unraid-ca-openhands/main/templates/openhands.xml
+  https://raw.githubusercontent.com/junkerderprovinz/openhands/main/templates/openhands.xml
 ```
 
 Then in the Unraid Web UI: **Docker** → **Add Container** → in the
@@ -173,7 +173,7 @@ docker run -d \
 ## 4. Screenshots
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/junkerderprovinz/unraid-ca-openhands/main/screenshots/placeholder.png" alt="Unraid template dialog and OpenHands WebUI" width="80%">
+  <img src="https://raw.githubusercontent.com/junkerderprovinz/openhands/main/screenshots/placeholder.png" alt="Unraid template dialog and OpenHands WebUI" width="80%">
 </p>
 
 <p align="center"><em>Real screenshots coming with the next release — drop yours in <a href="screenshots/"><code>screenshots/</code></a> via PR.</em></p>
@@ -344,7 +344,7 @@ See [`SECURITY.md`](SECURITY.md) for the reporting policy.
 ## 11. Contributing / License
 
 Pull requests welcome. Issues:
-<https://github.com/junkerderprovinz/unraid-ca-openhands/issues>.
+<https://github.com/junkerderprovinz/openhands/issues>.
 
 CI runs XML validation, an Unraid CA sanity check, markdown + YAML lint
 and a link check on every PR — see [`.github/workflows/ci.yml`](.github/workflows/ci.yml).

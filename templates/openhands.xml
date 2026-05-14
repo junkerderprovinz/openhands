@@ -7,13 +7,13 @@
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support>https://github.com/junkerderprovinz/unraid-ca-openhands/issues</Support>
+  <Support>https://github.com/junkerderprovinz/openhands/issues</Support>
   <Project>https://github.com/OpenHands/OpenHands</Project>
   <Overview>OpenHands is an open-source AI-driven development agent. It writes, reviews, and tests code. Important: Requires access to the Docker socket to spin up isolated execution environments. Pre-configured for local Ollama use.</Overview>
   <Category>Tools: Utilities: Productivity: Development:</Category>
   <WebUI>http://[IP]:[PORT:3000]/</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/junkerderprovinz/unraid-ca-openhands/main/templates/openhands.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/junkerderprovinz/unraid-ca-openhands/main/.github/assets/icon.png</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/junkerderprovinz/openhands/main/templates/openhands.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/junkerderprovinz/openhands/main/.github/assets/icon.png</Icon>
   <ExtraParams>--add-host host.docker.internal:host-gateway</ExtraParams>
   <PostArgs/>
   <CPUset/>

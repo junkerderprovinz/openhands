@@ -26,5 +26,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions CI: XML lint, Unraid CA sanity check, markdownlint,
   yamllint, link check (lychee).
 
-[Unreleased]: https://github.com/junkerderprovinz/unraid-ca-openhands/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/junkerderprovinz/unraid-ca-openhands/releases/tag/v1.0.0
+[Unreleased]: https://github.com/junkerderprovinz/openhands/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/junkerderprovinz/openhands/releases/tag/v1.0.0
