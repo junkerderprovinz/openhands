@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.2] — 2026-05-14
+
+### Changed
+
+- Forum support thread linked in `<Support>`: <https://forums.unraid.net/topic/198811-support-junkerderprovinz-openhands/>.
+  Required by Unraid Community Applications.
+
 ## [1.0.1] — 2026-05-14
 
 ### Added

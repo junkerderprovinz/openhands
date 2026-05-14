@@ -7,7 +7,7 @@
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support>https://github.com/junkerderprovinz/openhands/issues</Support>
+  <Support>https://forums.unraid.net/topic/198811-support-junkerderprovinz-openhands/</Support>
   <Project>https://github.com/OpenHands/OpenHands</Project>
   <Overview>OpenHands is an open-source AI-driven development agent. It writes, reviews, and tests code. Important: Requires access to the Docker socket to spin up isolated execution environments. Pre-configured for local Ollama use.</Overview>
   <Category>Tools: Utilities: Productivity: Development:</Category>
