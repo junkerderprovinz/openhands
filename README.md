@@ -1,4 +1,4 @@
-<h1 align="center">Unraid CA Template for OpenHands</h1>
+<h1 align="center">OpenHands for Unraid</h1>
 
 <a href="https://github.com/OpenHands/OpenHands">
   <img src="https://raw.githubusercontent.com/junkerderprovinz/openhands/main/.github/assets/banner.png" alt="OpenHands" width="100%">
