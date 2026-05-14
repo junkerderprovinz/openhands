@@ -7,12 +7,12 @@
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support>https://github.com/OpenHands/OpenHands</Support>
+  <Support>https://github.com/junkerderprovinz/unraid-ca-openhands/issues</Support>
   <Project>https://github.com/OpenHands/OpenHands</Project>
   <Overview>OpenHands is an open-source AI-driven development agent. It writes, reviews, and tests code. Important: Requires access to the Docker socket to spin up isolated execution environments. Pre-configured for local Ollama use.</Overview>
   <Category>Tools: Utilities: Productivity: Development:</Category>
   <WebUI>http://[IP]:[PORT:3000]/</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/junkerderprovinz/unraid-ca-openhands/main/openhands.xml</TemplateURL>
+  <TemplateURL>https://raw.githubusercontent.com/junkerderprovinz/unraid-ca-openhands/main/templates/openhands.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/junkerderprovinz/unraid-ca-openhands/main/.github/assets/icon.png</Icon>
   <ExtraParams>--add-host host.docker.internal:host-gateway</ExtraParams>
   <PostArgs/>
@@ -21,6 +21,14 @@
   <DonateText>If this template helps you, consider buying me a coffee.</DonateText>
   <DonateLink>https://buymeacoffee.com/junkerderprovinz</DonateLink>
   <Requires>A reachable Ollama instance (or any OpenAI-compatible LLM endpoint) configured via the LLM_* variables. Defaults assume Ollama running on the Unraid host, reachable via host.docker.internal.</Requires>
+  <Branch>
+    <Tag>1.7</Tag>
+    <TagDescription>Pinned stable — recommended (default)</TagDescription>
+  </Branch>
+  <Branch>
+    <Tag>latest</Tag>
+    <TagDescription>Floating latest — may include breaking changes</TagDescription>
+  </Branch>
   <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="OpenHands web interface" Type="Port" Display="always" Required="true" Mask="false">3000</Config>
   <Config Name="Config Directory" Target="/.openhands" Default="/mnt/user/appdata/openhands" Mode="rw" Description="Persistent OpenHands configuration and state" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/openhands</Config>
   <Config Name="Workspace Directory" Target="/workspace" Default="/mnt/user/ai-workspace" Mode="rw" Description="Working directory exposed to the agent" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/ai-workspace</Config>

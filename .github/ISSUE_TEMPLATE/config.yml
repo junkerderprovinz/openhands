@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: OpenHands upstream issues
+    url: https://github.com/OpenHands/OpenHands/issues
+    about: For bugs in OpenHands itself (not this Unraid template), please file upstream.
+  - name: Unraid Community Applications
+    url: https://forums.unraid.net/forum/38-community-applications/
+    about: General Unraid CA support, plugin installation issues, etc.

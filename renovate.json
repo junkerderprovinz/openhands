@@ -1,0 +1,35 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":semanticCommits",
+    ":dependencyDashboard"
+  ],
+  "timezone": "Europe/Vienna",
+  "schedule": ["before 6am on monday"],
+  "packageRules": [
+    {
+      "description": "Group all OpenHands image bumps into one PR",
+      "matchPackageNames": ["docker.openhands.dev/openhands/openhands"],
+      "groupName": "OpenHands",
+      "commitMessageTopic": "OpenHands"
+    },
+    {
+      "description": "Auto-merge minor + patch bumps of GH Actions",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Pick up the OpenHands image tag from the Unraid template",
+      "managerFilePatterns": ["/templates/openhands\\.xml$/"],
+      "matchStrings": [
+        "<Repository>(?<depName>docker\\.openhands\\.dev/openhands/openhands):(?<currentValue>[^<]+)</Repository>"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ]
+}

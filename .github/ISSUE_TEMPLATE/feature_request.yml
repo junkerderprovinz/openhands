@@ -1,0 +1,23 @@
+name: Feature Request
+description: Suggest an improvement to this Unraid template
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's the problem?
+      description: Describe the pain point. Be concrete.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: How should the template behave instead? Include any extra `Config`/`Variable` you'd add.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered

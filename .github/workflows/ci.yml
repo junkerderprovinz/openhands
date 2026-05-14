@@ -1,0 +1,104 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  xml:
+    name: XML Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install xmllint
+        run: sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends libxml2-utils
+      - name: Validate all XML templates
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          found=0
+          for f in templates/*.xml; do
+            echo "::group::xmllint $f"
+            xmllint --noout "$f"
+            echo "::endgroup::"
+            found=$((found + 1))
+          done
+          if [ "$found" -eq 0 ]; then
+            echo "::error::No XML templates found in templates/"
+            exit 1
+          fi
+          echo "Validated $found XML template(s)."
+      - name: Unraid CA template sanity check
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import sys, glob, xml.etree.ElementTree as ET
+          required = ["Name", "Repository", "Network", "WebUI", "Icon",
+                      "Project", "Support", "Overview", "Category"]
+          errors = []
+          for path in sorted(glob.glob("templates/*.xml")):
+              root = ET.parse(path).getroot()
+              if root.tag != "Container":
+                  errors.append(f"{path}: root tag is <{root.tag}>, expected <Container>")
+                  continue
+              if root.attrib.get("version") != "2":
+                  errors.append(f"{path}: Container version must be \"2\"")
+              for tag in required:
+                  if root.find(tag) is None:
+                      errors.append(f"{path}: missing required <{tag}>")
+              # Every <Config> needs Name + Target + Type
+              for cfg in root.findall("Config"):
+                  for attr in ("Name", "Target", "Type"):
+                      if not cfg.attrib.get(attr):
+                          errors.append(f"{path}: <Config> missing @{attr}")
+          if errors:
+              print("\n".join(errors))
+              sys.exit(1)
+          print("All templates pass Unraid CA sanity checks.")
+          PY
+
+  lint:
+    name: Lint (markdown + yaml)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v16
+        with:
+          globs: |
+            **/*.md
+            !**/CHANGELOG.md
+            !**/node_modules/**
+            !LICENSE
+      - name: yamllint
+        run: |
+          pip install --quiet yamllint
+          yamllint -d "{extends: relaxed, rules: {line-length: disable, document-start: disable, truthy: disable}}" .github/
+
+  links:
+    name: Link Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >
+            --no-progress
+            --max-concurrency 8
+            --timeout 20
+            --retry-wait-time 2
+            --max-retries 2
+            --accept 200,206,429
+            --exclude-path node_modules
+            --exclude '^https?://(localhost|127\.0\.0\.1|\[IP\]|<unraid-ip>)'
+            --exclude 'host\.docker\.internal'
+            --exclude 'github\.your-corp\.com'
+            README.md SECURITY.md CHANGELOG.md
+          fail: true

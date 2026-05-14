@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F3F4F6"/>
+      <stop offset="100%" stop-color="#E5E7EB"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#D1D5DB" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <rect x="40" y="40" width="1520" height="820" rx="16" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="2"/>
+  <rect x="40" y="40" width="1520" height="56" rx="16" fill="#1F2937"/>
+  <circle cx="76" cy="68" r="8" fill="#EF4444"/>
+  <circle cx="104" cy="68" r="8" fill="#F59E0B"/>
+  <circle cx="132" cy="68" r="8" fill="#10B981"/>
+  <text x="800" y="75" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, monospace"
+        font-size="18" fill="#E5E7EB">http://unraid.local:3000/</text>
+  <text x="800" y="430" text-anchor="middle"
+        font-family="ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif"
+        font-size="56" font-weight="700" fill="#111827">Screenshot coming soon</text>
+  <text x="800" y="490" text-anchor="middle"
+        font-family="ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif"
+        font-size="22" fill="#6B7280">Place real screenshots in /screenshots and reference them from README.md.</text>
+  <text x="800" y="540" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, monospace"
+        font-size="20" fill="#9CA3AF">unraid-ca-openhands</text>
+</svg>

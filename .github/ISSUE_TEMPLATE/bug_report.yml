@@ -1,0 +1,50 @@
+name: Bug Report
+description: Something in this template doesn't work
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug. Please fill out the form below so we can reproduce.
+
+        > For OpenHands bugs unrelated to the Unraid template, please open them upstream at
+        > <https://github.com/OpenHands/OpenHands/issues>.
+  - type: input
+    id: unraid
+    attributes:
+      label: Unraid version
+      placeholder: e.g. 7.0.1
+    validations:
+      required: true
+  - type: input
+    id: image-tag
+    attributes:
+      label: OpenHands image tag
+      placeholder: e.g. 1.7
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Be specific. What did you change in the template, what did you do in the WebUI, what happened?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Container log
+      description: "Output of: `docker logs --tail 200 openhands` (paste between the triple backticks)"
+      render: shell
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional context
+      description: LLM backend used, reverse proxy in front, anything non-default.
