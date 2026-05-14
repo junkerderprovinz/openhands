@@ -3,22 +3,38 @@
   "extends": [
     "config:recommended",
     ":semanticCommits",
-    ":dependencyDashboard"
+    ":dependencyDashboard",
+    ":enableVulnerabilityAlertsWithLabel(security)"
   ],
   "timezone": "Europe/Vienna",
   "schedule": ["before 6am on monday"],
+  "labels": ["dependencies"],
+  "prHourlyLimit": 4,
+  "prConcurrentLimit": 6,
   "packageRules": [
     {
-      "description": "Group all OpenHands image bumps into one PR",
+      "description": "Group all OpenHands image bumps into one PR with descriptive title",
       "matchPackageNames": ["docker.openhands.dev/openhands/openhands"],
       "groupName": "OpenHands",
-      "commitMessageTopic": "OpenHands"
+      "commitMessageTopic": "OpenHands",
+      "commitMessagePrefix": "feat:",
+      "labels": ["upstream-bump"]
     },
     {
-      "description": "Auto-merge minor + patch bumps of GH Actions",
+      "description": "Auto-merge minor + patch bumps of GitHub Actions (no risk for a template-only repo)",
       "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automerge": true,
+      "automergeType": "branch",
+      "commitMessagePrefix": "ci:",
+      "labels": ["github-actions"]
+    },
+    {
+      "description": "Major GH Actions bumps stay as manual PRs",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["major"],
+      "commitMessagePrefix": "ci:",
+      "labels": ["github-actions", "major-update"]
     }
   ],
   "customManagers": [
