@@ -1,0 +1,7 @@
+.DS_Store
+*.swp
+*.swo
+*.bak
+__pycache__/
+.idea/
+.vscode/
