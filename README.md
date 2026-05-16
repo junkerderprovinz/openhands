@@ -174,10 +174,19 @@ docker run -d \
 ## 4. Screenshots
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/junkerderprovinz/openhands/main/screenshots/placeholder.png" alt="Unraid template dialog and OpenHands WebUI" width="80%">
+  <img src=".github/assets/screenshots/openhands-1.jpg" alt="OpenHands — Let's Start Building home screen" width="90%">
+  <br><em>Home — 'Let's Start Building': open a repository or start from scratch.</em>
 </p>
 
-<p align="center"><em>Real screenshots coming with the next release — drop yours in <a href="screenshots/"><code>screenshots/</code></a> via PR.</em></p>
+<p align="center">
+  <img src=".github/assets/screenshots/openhands-2.jpg" alt="OpenHands — LLM settings with local Ollama endpoint" width="90%">
+  <br><em>Settings → LLM: Custom Model <code>ollama/qwen2.5-coder:14b</code> against a local Ollama at <code>http://&lt;LAN-IP&gt;:11434/v1</code> — no API key required.</em>
+</p>
+
+<p align="center">
+  <img src=".github/assets/screenshots/openhands-3.jpg" alt="OpenHands — Application language picker" width="90%">
+  <br><em>Settings → Application: built-in language picker (English, 日本語, 中文, 한국어, Norsk, Arabic…).</em>
+</p>
 
 ## 5. Configuration
 
@@ -379,4 +388,4 @@ and a link check on every PR — see [`.github/workflows/ci.yml`](.github/workfl
 
 If this template saves you a setup hassle or a debug night, consider buying me a coffee:
 
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_a_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/junkerderprovinz)
+[<img src=".github/assets/button-buy-me-a-coffee.png" width="220" alt="Buy me a coffee"/>](https://buymeacoffee.com/junkerderprovinz)
